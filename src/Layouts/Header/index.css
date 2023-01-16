@@ -3,7 +3,8 @@
 }
 
 .toggle-button {
-    background-color: white;
+    background-color: var(--secondary-color);
+    color: white;
     border-style: none;
 }
 

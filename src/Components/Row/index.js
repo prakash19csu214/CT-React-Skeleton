@@ -17,7 +17,7 @@ function Row({ title, fetchUrl, isLargeRow }) {
   }, [fetchUrl]);
   
   return (
-    <div className="conatiner">
+    <div className="container">
     <div className="row my-5">
       <h2> {title} </h2>
 
