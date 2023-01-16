@@ -1,0 +1,50 @@
+.header-top{
+    background-color: var(--secondary-color);
+}
+
+.toggle-button {
+    background-color: white;
+    border-style: none;
+}
+
+.nav_logo {
+    width: 150px;
+    object-fit: contain;
+}
+
+.navbar-logo {
+
+    font-family: 'Josefin Sans';
+    font-size: 34px;
+    line-height: 40px;
+
+    color: var(--secondary-color);
+}
+
+.nav-link {
+    color: white;
+}
+
+.nav-link:hover {
+    color: var(--primary-color);
+}
+
+.navbar-logo:hover {
+    color: var(--primary-color);
+}
+
+.btn-outline-success {
+    color: var(--primary-color);
+}
+
+.btn {
+    border-color: var(--primary-color);
+}
+
+.btn:hover {
+    background-color: var(--primary-color);
+}
+
+.navbar-toggler-icon {
+    color: #1A1A1A;
+}
