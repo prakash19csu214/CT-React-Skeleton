@@ -4,6 +4,7 @@
     import './index.css'
     import Skeleton from "react-loading-skeleton";
     import "react-loading-skeleton/dist/skeleton.css";
+import CardSkeleton from "../CardSkeleton";
 
     function Card() {
     const movies = useContext(MovieContext);
@@ -40,16 +41,8 @@
                 </div>
               </>
             ))
-            : <div className="row">
-              <div className="col-md-4 d-flex justify-content-center">
-                <Skeleton count={5} height={200} width={150}/>
-              </div>
-              <div className="col-md-6 offset-md-2">
-                <Skeleton count={5} height={40} width={200}/>
-                <Skeleton count={5} height={40} width={150}/>
-                <Skeleton count={5} height={40} width={150}/>
-              </div>
-            </div>
+            : 
+            <CardSkeleton cards={8}/>
           }
         </div>
       </div>
