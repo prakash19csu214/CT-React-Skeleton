@@ -1,18 +1,17 @@
-import React, { Component } from 'react'
-import Card from '../../Components/Card';
-import requests from '../../Middleware/requests';
-import './index.css'
+import React, { useContext } from "react";
+import Card from "../../Components/Card";
+import { MovieContext } from "../../Layouts/Main";
+import "./index.css";
 
-export default class Dashboard extends Component {
-  render() {
-    return (
-      <>
-        <Card
-          title="Card Title"
-          description="Card description text goes here"
-          image="path/to/image.jpg"
-        />
-      </>
-    )
-  }
+export default function Trending() {
+  const movies = useContext(MovieContext);
+  return (
+    <>
+      <div className="container">
+        <div className="row">
+            <Card />
+        </div>
+      </div>
+    </>
+  );
 }

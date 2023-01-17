@@ -45,7 +45,7 @@ class Header extends Component {
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink className="nav-link" to="/bar">
+                  <NavLink className="nav-link" to="/trending">
                     <span className="fa fa-amazon fa-lg mt-2">
                       {" "}
                       Amazon Originals
@@ -53,12 +53,12 @@ class Header extends Component {
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink className="nav-link" to="/line">
+                  <NavLink className="nav-link" to="/trending">
                     <span className="fa fa-fire fa-lg mt-2"> Trending Now</span>
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink className="nav-link" to="/pie">
+                  <NavLink className="nav-link" to="/trending">
                     <span className="fa fa-line-chart fa-lg mt-2">
                       {" "}
                       Top Rated
@@ -66,7 +66,7 @@ class Header extends Component {
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink className="nav-link" to="/donut">
+                  <NavLink className="nav-link" to="/trending">
                     <span className="fa fa-list fa-lg mt-2">
                       {" "}
                       Miscellaneous

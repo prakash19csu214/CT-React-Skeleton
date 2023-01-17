@@ -29,18 +29,14 @@ function Row({ title }) {
           ))
         ) : (
           <>
-            <div className="ml-5">
-            <Skeleton width={200} height={300}/>
-            </div>
-            <div className="ml-5">
-            <Skeleton width={200} height={300}/>
-            </div>
-            <div className="ml-5">
-            <Skeleton width={200} height={300}/>
-            </div>
-            <div className="ml-5">
-            <Skeleton width={200} height={300}/>
-            </div>
+           
+            <Skeleton className="skel" />
+           
+            <Skeleton className="skel" />
+           
+            <Skeleton className="skel" />
+           
+            <Skeleton className="skel" />
           </>
         )}
       </div>

@@ -6,6 +6,7 @@ import Footer from "../Footer";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { createContext } from "react";
 import { base_url } from "../../Config/config";
+import Trending from "../../Pages/Trending";
 
 export const MovieContext = createContext();
 
@@ -38,6 +39,7 @@ export default class Main extends Component {
         <MovieContext.Provider value={this.state.data}>
         <Switch>
           <Route path="/dashboard" component={Dashboard} />
+          <Route path="/trending" component={Trending} />
           <Redirect to="/dashboard" />
         </Switch>
         </MovieContext.Provider>

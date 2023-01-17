@@ -1,22 +1,47 @@
-import React from 'react';
-import './Card.css';
+import React from "react";
+import { useContext } from "react";
+import { MovieContext } from "../../Layouts/Main";
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
-const Card = ({ title, description, image }) => {
+function Card() {
+    
+    const movies = useContext(MovieContext);
+  
   return (
-    <div className="card row">
-      <div className="col-12 col-md-4">
-        <div className="card-image">
-          <img src={image} alt={title} className="img-fluid" />
-        </div>
+    <div className="container">
+    <div className="my-5">
+      {/* <h2 style={{'color': 'white'}}> {movie.Title || <Skeleton />} </h2> */}
+      
+
+      <div className="row_posters">
+        {/* poster */}
+
+        {movies ? (
+          movies.map((movie, index) => (
+            <img 
+              key={index}
+              className={"row_poster"}
+              src={movie.Poster}
+              alt={movie.Title}
+            />
+          ))
+        ) : (
+          <>
+           
+            <Skeleton className="skel" />
+           
+            <Skeleton className="skel" />
+           
+            <Skeleton className="skel" />
+           
+            <Skeleton className="skel" />
+          </>
+        )}
       </div>
-      <div className="col-12 col-md-8">
-        <div className="card-content">
-          <div className="card-title">{title}</div>
-          <div className="card-description">{description}</div>
-        </div>
       </div>
-    </div>
+      </div>
   );
-};
+}
 
 export default Card;
