@@ -1,20 +1,48 @@
-import React, { Component } from 'react'
-import Dashboard from '../../Pages/Dashboard';
-import Header from '../Header';
-import Footer from '../Footer';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import React, { Component } from "react";
+import axios from 'axios';
+import Dashboard from "../../Pages/Dashboard";
+import Header from "../Header";
+import Footer from "../Footer";
+import { Switch, Route, Redirect } from "react-router-dom";
+import { createContext } from "react";
+import { base_url } from "../../Config/config";
+
+export const MovieContext = createContext();
 
 export default class Main extends Component {
+
+  state = {
+    data: null
+  };
+
+  componentDidMount() {
+    this.fetchData();
+  }
+
+  async fetchData() {
+    try {
+        const response = await axios.get(base_url);
+        console.log(response)
+        this.setState({ data: response.data.movies.slice(0, 4) });
+    } catch (error) {
+        console.error(error);
+    }
+  }
+
+
+
   render() {
     return (
-        <div>   
-          <Header />
-          <Switch>
-            <Route path= "/dashboard" component={Dashboard} />
-            <Redirect to="/dashboard" />
-          </Switch>
-          <Footer />
-        </div>
-      );
+      <div>
+        <Header />
+        <MovieContext.Provider value={this.state.data}>
+        <Switch>
+          <Route path="/dashboard" component={Dashboard} />
+          <Redirect to="/dashboard" />
+        </Switch>
+        </MovieContext.Provider>
+        <Footer />
+      </div>
+    );
   }
 }

@@ -1,37 +1,48 @@
-import React, { useState, useEffect } from "react";
-import axios from "../../Middleware/get-api";
+import React from "react";
+import { useContext } from "react";
+import { MovieContext } from "../../Layouts/Main";
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 import "./index.css";
 
-const base_url = "https://image.tmdb.org/t/p/original/";
-
-function Row({ title, fetchUrl, isLargeRow }) {
-  const [movies, setMovies] = useState([]);
-
-  useEffect(() => {
-    async function fetchData() {
-      const request = await axios.get(fetchUrl);
-      setMovies(request.data.results);
-      return request;
-    }
-    fetchData();
-  }, [fetchUrl]);
+function Row({ title }) {
+    
+    const movies = useContext(MovieContext);
   
   return (
     <div className="container">
-    <div className="row my-5">
-      <h2> {title} </h2>
+    <div className="my-5">
+      <h2 style={{'color': 'white'}}> {title || <Skeleton />} </h2>
+      
 
       <div className="row_posters">
         {/* poster */}
 
-        {movies.map((movie) => (
-          <img 
-            key={movie.id}
-            className={`row_poster ${isLargeRow && "row_posterLarge"}`}
-            src={`${base_url}${isLargeRow ? movie.poster_path : movie.backdrop_path}`}
-            alt={movie.original_title}
-          />
-        ))}
+        {movies ? (
+          movies.map((movie, index) => (
+            <img 
+              key={index}
+              className={"row_poster"}
+              src={movie.Poster}
+              alt={movie.Title}
+            />
+          ))
+        ) : (
+          <>
+            <div className="ml-5">
+            <Skeleton width={200} height={300}/>
+            </div>
+            <div className="ml-5">
+            <Skeleton width={200} height={300}/>
+            </div>
+            <div className="ml-5">
+            <Skeleton width={200} height={300}/>
+            </div>
+            <div className="ml-5">
+            <Skeleton width={200} height={300}/>
+            </div>
+          </>
+        )}
       </div>
       </div>
       </div>
