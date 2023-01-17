@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import axios from 'axios';
 import Dashboard from "../../Pages/Dashboard";
 import Header from "../Header";
-import Footer from "../Footer";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { createContext } from "react";
 import { base_url } from "../../Config/config";
@@ -43,7 +42,6 @@ export default class Main extends Component {
           <Redirect to="/dashboard" />
         </Switch>
         </MovieContext.Provider>
-        <Footer />
       </div>
     );
   }
