@@ -8,44 +8,53 @@
     function Card() {
     const movies = useContext(MovieContext);
 
-    return (
-        <div className="container">
-          <div className="my-5">
-              {movies ?
-                movies.map((movie, index) => (
-                  <>
-                  <div className="container">
-                    <div className="row mt-3">
-                      <div className="col-12 col-md-4 d-flex justify-content-center">
-                        <img
-                          key={index}
-                          className={"card_poster"}
-                          src={movie.Poster}
-                          alt={movie.Title}
-                        />
-                      </div>
-                      <div className="col-12 col-md-6 offset-md-2">
-                        <div className="row d-flex justify-content-center text-center">
-                        <h2 style={{ color: "white" }}>{movie.Title}</h2>
-                        </div>
-                        <div className="row d-flex justify-content-center">
-                        <h4 style={{ color: "white" }}>{movie.Year}</h4>
-                        </div>
-                        <div className="row d-flex justify-content-center">
-                        <h4 style={{ color: "white" }}>{movie.Runtime}</h4>
-                        </div>
-                        
-                      </div>
+      return (
+    <div className="container">
+      <div className="my-5">
+          {movies ?
+            movies.map((movie, index) => (
+              <>
+              <div className="container">
+                <div className="row mt-3">
+                  <div className="col-12 col-md-4 d-flex justify-content-center">
+                    <img
+                      key={index}
+                      className={"card_poster"}
+                      src={movie.Poster}
+                      alt={movie.Title}
+                    />
+                  </div>
+                  <div className="col-12 col-md-6 offset-md-2">
+                    <div className="row d-flex justify-content-center text-center">
+                    <h2 style={{ color: "white" }}>{movie.Title}</h2>
                     </div>
+                    <div className="row d-flex justify-content-center">
+                    <h4 style={{ color: "white" }}>{movie.Year}</h4>
                     </div>
-                  </>
-                ))
-                : <Skeleton count={5} height={200}/>
-              }
+                    <div className="row d-flex justify-content-center">
+                    <h4 style={{ color: "white" }}>{movie.Runtime}</h4>
+                    </div>
+                    
+                  </div>
+                </div>
+                </div>
+              </>
+            ))
+            : <div className="row">
+              <div className="col-md-4 d-flex justify-content-center">
+                <Skeleton count={5} height={200} width={150}/>
+              </div>
+              <div className="col-md-6 offset-md-2">
+                <Skeleton count={5} height={40} width={200}/>
+                <Skeleton count={5} height={40} width={150}/>
+                <Skeleton count={5} height={40} width={150}/>
+              </div>
             </div>
-          </div>
-      );
-    
+          }
+        </div>
+      </div>
+  );
+
     }
 
     export default Card;
